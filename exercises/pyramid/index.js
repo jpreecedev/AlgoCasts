@@ -14,6 +14,27 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+//n=2, c=n+1=3
+//n=3, c=n+2=5
+//n=4, c=n+3=7
 
-module.exports = pyramid;
+function pyramid(n) {
+  const columns = n + n - 1
+
+  for (let row = 0; row < n; row++) {
+    const m = []
+    const midpoint = Math.floor(columns / 2)
+
+    for (let column = 0; column < columns; column++) {
+      if (midpoint - row <= column && midpoint + row >= column) {
+        m.push('#')
+      } else {
+        m.push(' ')
+      }
+    }
+
+    console.log(m.join(''))
+  }
+}
+
+module.exports = pyramid
